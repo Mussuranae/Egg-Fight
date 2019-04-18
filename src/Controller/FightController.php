@@ -8,21 +8,33 @@ class FightController extends AbstractController
 {
   public function show()
   {
+  	session_start();
+  	
   	$client = new Client([
   		'base_uri' => 'http://easteregg.wildcodeschool.fr/api/',
   	]);
 
-  	while (count($characters) < 2) {
-		
-		$response = $client->request('GET', 'characters/random');
-		$temporary_characters=$response->getBody();
-		$temporary_characters=json_decode($temporary_characters);
+  	$response=$client->request('GET', 'characters/'.$_SESSION['perso1'][0]);
+  	$characters=$response->getBody();
+  	$characters=json_decode($characters);
 
-		if(!in_array($temporary_characters, $characters)) {
-	    $characters[]=$temporary_characters;
-		}
-	}
+  	$response2=$client->request('GET', 'characters/'.$_SESSION['perso2'][0]);
+  	$characters2=$response2->getBody();
+  	$characters2=json_decode($characters2);
 
-    return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters]);
+  	
+  	$response3=$client->request('GET', 'eggs/random');
+  	$egg=$response3->getBody();
+  	$egg=json_decode($egg);
+
+  	$response4=$client->request('GET', 'eggs/random');
+  	$egg2=$response4->getBody();
+  	$egg2=json_decode($egg2);
+var_dump($egg);
+
+    return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2]);
   }
+
+
+
 }
