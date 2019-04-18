@@ -38,7 +38,11 @@
     <div class="row">
         <div class="col">
             <img src="http://via.placeholder.com/30x30">
-            <a href="/fight/show/1"><button >balance ton <del>porc</del> Oeuf</button></a>
+            <a href="/fight/show/1"><button >pioche ton <del>porc</del> Oeuf</button></a>
+            {% if egg.name is defined %}
+            <a href="/fight/show/3"><button >balance ton <del>porc</del> Oeuf</button></a>
+            {% endif %}
+            <!-- if code==3 alors applique les dégâts au perso 2 (à mettre dans le controller) -->
         </div>
 
         <div class="col-xl3">
@@ -82,7 +86,11 @@
     <div class="row">
         <div class="col right">
             <img src="http://via.placeholder.com/30x30">
-            <a href="/fight/show/2"><button >balance ton <del>porc</del> Oeuf 2</button></a>
+            <a href="/fight/show/2"><button >pioche ton <del>porc</del> Oeuf 2</button></a>
+            {% if egg2.name is defined %}
+            <a href="/fight/show/4"><button >balance ton <del>porc</del> Oeuf</button></a>
+            {% endif %}
+            <!-- if code==4 alors applique les dégâts au perso 1 (à mettre dans le controller) -->
         </div>
 
         <div class="col right">
