@@ -6,6 +6,9 @@
 
 <div class="container-fluid">
     <div class="row">
+
+        <!-- CARD OEUF -->
+        {% if egg.name is defined %}
         <div class="col">
             <div class="card small">
                 <div class="card-image">
@@ -13,10 +16,13 @@
                 </div>
                 <div class="card-content">
                     <p>{{ egg.name }}</p>
+                    <p>Calibre: {{ egg.caliber }}</p>
+                    <p>Code Farming: {{ egg.farming }}</p>
                 </div>
             </div>
         </div>
-
+        {% endif %}
+        <!-- CARD PERSO-->
         <div class="col">
             <div class="card small">
                 <div class="card-image">
@@ -32,7 +38,7 @@
     <div class="row">
         <div class="col">
             <img src="http://via.placeholder.com/30x30">
-            <span class="egg-name">...</span>
+            <a href="/fight/show/1"><button >balance ton <del>porc</del> Oeuf</button></a>
         </div>
 
         <div class="col-xl3">
@@ -47,6 +53,7 @@
 
 <div class="container-fluid">
     <div class="row">
+        {% if egg2.name is defined %}
         <div class="col right">
             <div class="card small">
                 <div class="card-image">
@@ -54,10 +61,12 @@
                 </div>
                 <div class="card-content">
                     <p>{{ egg2.name }}</p>
+                    <p>Calibre: {{ egg2.caliber }}</p>
+                    <p>Code Farming: {{ egg2.farming }}</p>
                 </div>
             </div>
         </div>
-
+        {% endif %}
         <div class="col right">
             <div class="card small">
                 <div class="card-image">
@@ -73,7 +82,7 @@
     <div class="row">
         <div class="col right">
             <img src="http://via.placeholder.com/30x30">
-            <span class="egg-name">...</span>
+            <a href="/fight/show/2"><button >balance ton <del>porc</del> Oeuf 2</button></a>
         </div>
 
         <div class="col right">

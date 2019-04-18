@@ -40,6 +40,8 @@ class ChoiceController extends AbstractController
 
             }
         }
+
+        // ICI JE RECUPERE LES INFOS CONCERNANT LES DEUX PERSO. RECHERCHE SUR L'API AVEC L'ID, qui est STOCKE DANS LA VARIABLE $_SESSION.
         $response1= $client->request('GET', 'characters/'.$_SESSION['perso1'][0]);
         $namePerso1=$response1->getBody();
 		$namePerso1=json_decode($namePerso1);

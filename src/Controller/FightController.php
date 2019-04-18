@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 class FightController extends AbstractController
 {
-  public function show()
+  public function show($code)
   {
   	session_start();
   	
@@ -22,15 +22,20 @@ class FightController extends AbstractController
   	$characters2=$response2->getBody();
   	$characters2=json_decode($characters2);
 
-  	
-  	$response3=$client->request('GET', 'eggs/random');
-  	$egg=$response3->getBody();
-  	$egg=json_decode($egg);
+  		$egg=[];
+  		$egg2=[];
+	if($code==1) {
+		$response3 = $client->request('GET', 'eggs/random');
+		$egg = $response3->getBody();
+		$egg = json_decode($egg);
+	}
+	  if($code==2) {
+		  $response4 = $client->request('GET', 'eggs/random');
+		  $egg2 = $response4->getBody();
+		  $egg2 = json_decode($egg2);
+	  }
 
-  	$response4=$client->request('GET', 'eggs/random');
-  	$egg2=$response4->getBody();
-  	$egg2=json_decode($egg2);
-var_dump($egg);
+	  var_dump($egg);
 
     return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2]);
   }
