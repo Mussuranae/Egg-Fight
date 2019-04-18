@@ -28,7 +28,7 @@ class CharacterController extends AbstractController
 
       $data=$response->getBody();
       $data=json_decode($data);
-      // Ici, ça va ressortir le resultat de la réquete de la ligne plus haut $client->request. Si random ou si :id, ça ressortira UN SEUL char
+            // Ici, ça va ressortir le resultat de la réquete de la ligne plus haut $client->request. Si random ou si :id, ça ressortira UN SEUL char
 			// DONC UN SEUL TABLEAU. SI la formule est simplement eggs/ ou characters/, ça va ressortir TOUS les oeufs/ ou char. Donc UN TABLEAU DANS UN TABLEAU.
 			// Et là, c'est plus galère du coup.
 			//$data=array_slice(match.random_int(0,99), );

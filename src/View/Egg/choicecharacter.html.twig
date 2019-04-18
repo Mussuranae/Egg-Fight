@@ -5,13 +5,20 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="col xl2">
-            <h5>Nom</h5>
-            <p> {% character.name %} </p>
-            <img src="http://via.placeholder/50x50">
-        </div>
-    </div>
+
+  <div class="row">
+
+		{% for character in characters %}
+			<div class="col-sm-1">
+					{{ character.name }}
+					<img src="{{ character.image }}" class="img w-100">
+			</div>
+		{% endfor %}
+
+  	<div class="character">
+
+  	</div>
+  </div>
 </div>
 
 {% endblock %}
