@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 class ChoiceController extends AbstractController
 {
 
+
     public function show()
     {
 
@@ -19,6 +20,8 @@ class ChoiceController extends AbstractController
 
         // Initialize Characters array
       // pick 10 characters and stock into array $data
+		$characters=[];
+
         while (count($characters) < 10) {
             $response = $client->request('GET', 'characters/random');
             $temporary_characters=$response->getBody();
