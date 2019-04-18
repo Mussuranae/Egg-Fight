@@ -9,4 +9,5 @@ class ChoiceController extends AbstractController
     {
         return $this->twig->render("Egg/choicecharacter.html.twig");
     }
+
 }
