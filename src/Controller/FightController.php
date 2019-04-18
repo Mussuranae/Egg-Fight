@@ -14,6 +14,7 @@ class FightController extends AbstractController
   		'base_uri' => 'http://easteregg.wildcodeschool.fr/api/',
   	]);
 
+  	// Récupération des infos des 2 personnages choisis sur la page choicecharacter.html.twig
   	$response=$client->request('GET', 'characters/'.$_SESSION['perso1'][0]);
   	$characters=$response->getBody();
   	$characters=json_decode($characters);
