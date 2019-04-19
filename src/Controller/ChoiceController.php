@@ -37,13 +37,11 @@ class ChoiceController extends AbstractController
         // Garde en mémoire dans la session l'info des 2 persos choisis.
         if ($_SERVER['REQUEST_METHOD']=='POST') {
             session_start();
-
             if (empty($_SESSION['perso1'])) {
                 $_SESSION['perso1']=array_keys($_POST);
             } else {
                 $_SESSION['perso2']=array_keys($_POST);
             }
-			//session_destroy();
         }
 
 		$namePerso1=[];
@@ -52,19 +50,16 @@ class ChoiceController extends AbstractController
 		if(!empty($_SESSION['perso1'])){
         $response1= $client->request('GET', 'characters/'.$_SESSION['perso1'][0]);
         $namePerso1=$response1->getBody();
-		$namePerso1=json_decode($namePerso1);
-		}
+        $namePerso1=json_decode($namePerso1, true); //avec le ', true' ça renvoit les datas en tableau associatif
 		if(!empty($_SESSION['perso2'])){
-		$response2= $client->request('GET', 'characters/'.$_SESSION['perso2'][0]);
+		$response2=$client->request('GET', 'characters/'.$_SESSION['perso2'][0]);
 		$namePerso2=$response2->getBody();
-		$namePerso2=json_decode($namePerso2);
-		}
+		$namePerso2=json_decode($namePerso2, true);//avec le ', true' ça renvoit les datas en tableau associatif
+
+        $_SESSION['pvPerso1'] = 100;
+        $_SESSION['pvPerso2'] = 100;
+
+
         return $this->twig->render('Egg/choicecharacter.html.twig', ['characters'=>$characters, 'perso1'=>$namePerso1, 'perso2'=>$namePerso2]);
     }
-
-    public function deco(){
-    	session_start();
-    	session_destroy();
-    	header('location: /Choice/show');
-	}
 }
