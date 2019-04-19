@@ -7,9 +7,6 @@ use GuzzleHttp\Client;
 class FightController extends AbstractController
 {
   /**
-   * Display the created event on the 'weekCalendar.html.twig' page with a success message, or display the same form with errors messages.
-   *
-   * This method will insert into 'events' table the form inputs from '_addEventForm.html.twig'.
    *
    * @return mixed
    */
@@ -38,13 +35,13 @@ class FightController extends AbstractController
 	  if($code==1) {
   		$response3 = $client->request('GET', 'eggs/random');
   		$egg = $response3->getBody();
-  		$egg = json_decode($egg);
+  		$egg = json_decode($egg, true); //avec le 'true' ça renvoit les datas en tableau associatif
 	  }
 
 	  if($code==2) {
 		  $response4 = $client->request('GET', 'eggs/random');
 		  $egg2 = $response4->getBody();
-		  $egg2 = json_decode($egg2);
+		  $egg2 = json_decode($egg2, true); //avec le 'true' ça renvoit les datas en tableau associatif
 	  }
 
 	  var_dump($egg);
