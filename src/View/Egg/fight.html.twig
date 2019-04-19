@@ -36,7 +36,29 @@
         {% endif %}
     </div>
 </div>
+    <div class="container">
+        <div class="row justify-content-end">
+    {% if player1=="" and player2=="" %}
+    <p>JOUEUR 1, A TOI DE JOUEUR</p>
+    {% endif %}
+    {% if player1 ==1 %}
+    <p>JOUEUR 1, A TOI DE JOUEUR</p>
+    {% endif %}
+    {% if player2 == 2 %}
+        <p>JOUEUR 2, A TOI DE JOUEUR</p>
+    {% endif %}
+        </div>
+    <div class="row justify-content-center">
+    {% if pvPerso1 <= 30 or pvPerso2 <= 30 and imageMael==""%}
+        <a href="/fight/show/5"><button class="waves-effect waves-light btn-small pick_me">Balance ton Prof!</button></a>
 
+    {% endif %}
+
+    {% if imageMael is defined %}
+        <img src="{{ imageMael }}">
+    {% endif %}
+    </div>
+    </div>
 <div class="container">
     <div class="row">
         {% if egg2.name is defined %}
