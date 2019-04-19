@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 class EggsController extends AbstractController
 {
-	public function eggsSucks(){
+	public function eggs(){
 
 		$client = new Client([
 			// Base URI is used with relative requests.

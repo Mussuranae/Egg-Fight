@@ -16,15 +16,17 @@
 </head>
 
 <body>
-
-<nav>
-    <div class="nav-wrapper">
-        <!-- <img src="{{ egg.image }}" class="left"> -->
-        <p class="brand-logo center title_navbar">EGG FIGHT</p>
-        <!-- <img src="{{ egg.image }}" class="right"> -->
-    </div>
-</nav>
-
+<div class="container">
+    <nav>
+        <div class="nav-wrapper">
+            <img src="{{ eggs.image }}" class="egg_navbar">
+            <!-- <img src="{{ eggs.image }}" class="left"> -->
+            <p class="brand-logo center title_navbar">EGG FIGHT</p>
+            <img src="{{ egg.image }}" class="egg_navbar">
+            <!-- <img src="{{ egg.image }}" class="right"> -->
+        </div>
+    </nav>
+</div>
 
 
 {% block content %}{% endblock %}

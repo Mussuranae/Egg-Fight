@@ -2,7 +2,8 @@
 
 @font-family{
     font-family: outrun_future;
-    src: url("../typographie/outrun_future/Outrun_future.otf");
+    src: url("../typographie/outrun_future/Outrun_future.otf") format('truetype');
+
 }
 
 
@@ -46,7 +47,9 @@
     text-align: center;
     size: 10px;
 }
-
+.pick_me:hover{
+    background-color: #D8D9D9;
+}
 /* Footer */
 
 .footer{
