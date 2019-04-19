@@ -49,11 +49,11 @@ class FightController extends AbstractController
 
 
     if ($code == 3) {
-      $pvPerso2 -= 10;
+      $pvPerso2 -= rand(20, 25);
     }
 
     if ($code == 4) {
-      $pvPerso1 -= 10;
+      $pvPerso1 -= rand(20, 25);
     }
 
     $_SESSION['pvPerso1'] = $pvPerso1;
