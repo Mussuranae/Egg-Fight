@@ -4,79 +4,45 @@
 
 {% block content %}
 
-<div class="container-fluid">
-
-        <!-- CARD OEUF -->
+<div class="container">
+    <div class="row">
         {% if egg.name is defined %}
-        <div class="row">
-            <div class="col s2">
-                <div class="card card_choice">
-                    <div class="card-image choice_image">
-                        <img src="{{ character.image }}" class="img w-100">
-                    </div>
-                    <div class="card-content choice_name">
-                        <p class="p_name">{{ character.name }}</p>
-                        <p class="species">{{ character.species }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="card small">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/20x20">
-                    </div>
-                    <div class="card-content">
-                        <p>{{ egg.name }}</p>
-                        <p>Calibre: {{ egg.caliber }}</p>
-                        <p>Code Farming: {{ egg.farming }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-        <!-- CARD PERSO-->
-        <div class="col">
-            <div class="card small">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/20x20">
+            <div class="card card_egg">
+                <div class="card-image fight_image">
+                    <img src="{{ egg.image }}">
                 </div>
                 <div class="card-content">
-                    <p>{{ characters.name }}</p>
+                    <p>{{ egg.name }}</p>
+                    <p>Calibre: {{ egg.caliber }}</p>
+                    <p>Code Farming: {{ egg.farming }}</p>
                 </div>
+            </div>
+        {% endif %}
+
+        <div class="card card_fight">
+            <div class="card-image fight_image">
+                <img src="{{ characters.image }}">
+            </div>
+            <div class="card-content fight_name">
+                <p class="p_name">{{ characters.name }}</p>
+                <p class="hp_fight">PV = METHODE A DEFINIR</p>
             </div>
         </div>
     </div>
-
     <div class="row">
-        <div class="col">
-            <img src="http://via.placeholder.com/30x30">
-            <a href="/fight/show/1"><button >pioche ton <del>porc</del> Oeuf</button></a>
-            {% if egg.name is defined %}
-            <a href="/fight/show/3"><button >balance ton <del>porc</del> Oeuf</button></a>
-            {% endif %}
-            <!-- if code==3 alors applique les dégâts au perso 2 (à mettre dans le controller) -->
-        </div>
-
-        <div class="col-xl3">
-            <div class="character_stats">
-                <p>Nom</p>
-                <p>HP</p>
-            </div>
-        </div>
+        <a href="/fight/show/1"><button class="waves-effect waves-light btn-small pick_me">pioche ton Oeuf</button></a>
+        {% if egg.name is defined %}
+            <a href="/fight/show/3" ><button class="waves-effect waves-light btn-small pick_me">balance ton Oeuf</button></a>
+        {% endif %}
     </div>
 </div>
 
-
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         {% if egg2.name is defined %}
-        <div class="col right">
-            <div class="card small">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/20x20">
+            <div class="card card_egg">
+                <div class="card-image fight_image">
+                    <img src="{{ egg2.image }}">
                 </div>
                 <div class="card-content">
                     <p>{{ egg2.name }}</p>
@@ -84,36 +50,24 @@
                     <p>Code Farming: {{ egg2.farming }}</p>
                 </div>
             </div>
-        </div>
         {% endif %}
-        <div class="col right">
-            <div class="card small">
-                <div class="card-image">
-                    <img src="https://via.placeholder.com/20x20">
-                </div>
-                <div class="card-content">
-                    <p>{{ characters2.name }}</p>
-                </div>
+
+        <div class="card card_fight">
+            <div class="card-image fight_image">
+                <img src="{{ characters2.image }}">
+            </div>
+            <div class="card-content fight_name">
+                <p class="p_name">{{ characters2.name }}</p>
+                <p class="hp_fight">PV = METHODE A DEFINIR</p>
             </div>
         </div>
     </div>
-
     <div class="row">
-        <div class="col right">
-            <img src="http://via.placeholder.com/30x30">
-            <a href="/fight/show/2"><button >pioche ton <del>porc</del> Oeuf 2</button></a>
-            {% if egg2.name is defined %}
-            <a href="/fight/show/4"><button >balance ton <del>porc</del> Oeuf</button></a>
-            {% endif %}
-            <!-- if code==4 alors applique les dégâts au perso 1 (à mettre dans le controller) -->
-        </div>
-
-        <div class="col right">
-            <div class="character_stats">
-                <p>Nom</p>
-                <p>HP</p>
-            </div>
-        </div>
+        <a href="/fight/show/2"><button class="waves-effect waves-light btn-small pick_me">Pioche ton Oeuf</button></a>
+        {% if egg2.name is defined %}
+            <a href="/fight/show/3" ><button class="waves-effect waves-light btn-small pick_me">Balance ton Oeuf</button></a>
+        {% endif %}
     </div>
 </div>
+
 {% endblock %}

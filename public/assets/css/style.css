@@ -21,6 +21,11 @@
 .under_nav{
     padding-top: 20px;
 }
+.egg_navbar{
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+}
 
 /* Card Choice Character */
 
@@ -47,11 +52,31 @@
     text-align: center;
     size: 10px;
 }
-.pick_me:hover{
+.pick_me{
     background-color: #D8D9D9;
+    color: black;
 }
-/* Footer */
+.pick_me:hover{
+    background-color: darkred;
+    color: white;
+}
 
-.footer{
-    background-color: #D8D9D9;
+/* Fight Page */
+
+.card_fight, .card_egg{
+    max-height: 500px;
+    max-width: 175px;
+}
+.fight_image{
+    max-height: 175px;
+    max-width: 175px;
+    overflow: hidden;
+}
+.fight_name{
+    padding: 20px;
+    height: 100px;
+}
+
+.hp_fight{
+    text-align: center;
 }
