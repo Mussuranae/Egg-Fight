@@ -1,17 +1,4 @@
-/* Importation police */
-
-@font-family{
-    font-family: outrun_future;
-    src: url("../typographie/outrun_future/Outrun_future.otf") format('truetype');
-
-}
-
-
 /* Navbar */
-
-.title_navbar{
-    font-family: outrun_future;
-}
 
 .nav-wrapper {
     background-color: #D8D9D9;
