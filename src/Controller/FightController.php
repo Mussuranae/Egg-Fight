@@ -52,12 +52,12 @@ class FightController extends AbstractController
 		$player2="";
 
         if ($code == 3) {
-            $pvPerso2 -= 10;
+            $pvPerso2 -= rand(20, 25);
 			$player2=2;
         }
 
         if ($code == 4) {
-            $pvPerso1 -= 10;
+            $pvPerso1 -= rand(20, 25);
 			$player1=1;
         }
 		$imageMael="";

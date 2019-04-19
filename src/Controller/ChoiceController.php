@@ -61,12 +61,17 @@ class ChoiceController extends AbstractController
             $_SESSION['pvPerso2'] = 100;
 
 
-            return $this->twig->render('Egg/choicecharacter.html.twig', ['characters' => $characters, 'perso1' => $namePerso1, 'perso2' => $namePerso2]);
-        }
 
-        public function deco(){
-    	session_start();
-    	session_destroy();
-    	header('location:/choice/show');
-		}
+        $navegg = $client->request('GET', 'eggs/random');
+        $oeuf = $navegg->getBody();
+        $oeuf = json_decode($oeuf, true);
+
+        return $this->twig->render('Egg/choicecharacter.html.twig', ['characters'=>$characters, 'perso1'=>$namePerso1, 'perso2'=>$namePerso2, 'oeuf'=>$oeuf]);
+    }
+    public function deco(){
+        session_start();
+        session_destroy();
+        header('location:/choice/show');
+    }
 }
+
