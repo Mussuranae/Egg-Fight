@@ -57,6 +57,7 @@
     {% if imageMael is defined %}
         
         <img src="{{ imageMael }}">
+        <span></span>
     {% endif %}
         {% if pvPerso1<=0 %}
         <p>Le joueur 2 gagne...</p>
@@ -64,7 +65,7 @@
         {% endif %}
         {% if pvPerso2<=0 %}
             <p>Le joueur 1 gagne...</p>
-            <a href="/choice/deco">Recommencer une partie?</a>
+            <a href="/choice/deco" class="waves-effect waves-light btn-small pick_me">Recommencer une partie?</a>
         {% endif %}
     </div>
     </div>

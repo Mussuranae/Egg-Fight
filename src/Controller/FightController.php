@@ -68,6 +68,10 @@ class FightController extends AbstractController
         $_SESSION['pvPerso1'] = $pvPerso1;
         $_SESSION['pvPerso2'] = $pvPerso2;
 
-        return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2,'pvPerso1'=>$pvPerso1, 'pvPerso2'=>$pvPerso2, 'imageMael'=>$imageMael, 'player2'=>$player2, 'player1'=>$player1]);
+        $navegg = $client->request('GET', 'eggs/random');
+        $oeuf = $navegg->getBody();
+        $oeuf = json_decode($oeuf, true);
+
+        return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2,'pvPerso1'=>$pvPerso1, 'pvPerso2'=>$pvPerso2, 'imageMael'=>$imageMael, 'player2'=>$player2, 'player1'=>$player1, 'oeuf'=>$oeuf]);
     }
 }
