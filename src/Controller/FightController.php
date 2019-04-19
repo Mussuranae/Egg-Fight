@@ -63,6 +63,14 @@ class FightController extends AbstractController
 		$imageMael="";
         if ($code == 5) {
         	$imageMael='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPCD_KIMv7U31ugG-18kIndGnqMxN1husZL-hAT0_AuHc3Rfii';
+        	if ($pvPerso1<30){
+                $pvPerso1+=20;
+            }
+
+        	elseif ($pvPerso2<30)
+            {
+            $pvPerso2+=20;
+            }
 		}
 
         $_SESSION['pvPerso1'] = $pvPerso1;
