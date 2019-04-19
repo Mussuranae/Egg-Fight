@@ -47,12 +47,10 @@ class FightController extends AbstractController
     if ($code == 3) {
       $_SESSION['pvPerso2'] -= 10;
     }
+
     if ($code == 4) {
       $_SESSION['pvPerso1'] -= 10;
     }
-
-
-	  var_dump($egg);
 
     return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2]);
 
