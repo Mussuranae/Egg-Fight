@@ -25,7 +25,7 @@ class ChoiceController extends AbstractController
 
         // Compte 10 personnages différents et aléatoires, transforme les infos et les stocke dans un tableau.
         while (count($characters) < 10) {
-            $response = $client->request('GET', 'characters/random');
+            $response=$client->request('GET', 'characters/random');
             $temporary_characters=$response->getBody();
             $temporary_characters=json_decode($temporary_characters);
 
@@ -45,13 +45,19 @@ class ChoiceController extends AbstractController
         }
 
         // ICI JE RECUPERE LES INFOS CONCERNANT LES DEUX PERSO. RECHERCHE SUR L'API AVEC L'ID, qui est stocké dans la variable $_SESSION.
-        $response1= $client->request('GET', 'characters/'.$_SESSION['perso1'][0]);
+        $response1=$client->request('GET', 'characters/'.$_SESSION['perso1'][0]);
         $namePerso1=$response1->getBody();
-		$namePerso1=json_decode($namePerso1);
+		$namePerso1=json_decode($namePerso1, true); //avec le ', true' ça renvoit les datas en tableau associatif
 
-		$response2= $client->request('GET', 'characters/'.$_SESSION['perso2'][0]);
+		$response2=$client->request('GET', 'characters/'.$_SESSION['perso2'][0]);
 		$namePerso2=$response2->getBody();
-		$namePerso2=json_decode($namePerso2);
+		$namePerso2=json_decode($namePerso2, true);//avec le ', true' ça renvoit les datas en tableau associatif
+
+
+        $_SESSION['pvPerso1'] = 100;
+        $_SESSION['pvPerso2'] = 100;
+
+
 
         return $this->twig->render('Egg/choicecharacter.html.twig', ['characters'=>$characters, 'perso1'=>$namePerso1, 'perso2'=>$namePerso2]);
     }
