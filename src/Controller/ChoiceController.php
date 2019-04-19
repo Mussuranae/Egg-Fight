@@ -53,10 +53,8 @@ class ChoiceController extends AbstractController
 		$namePerso2=$response2->getBody();
 		$namePerso2=json_decode($namePerso2, true);//avec le ', true' ça renvoit les datas en tableau associatif
 
-
         $_SESSION['pvPerso1'] = 100;
         $_SESSION['pvPerso2'] = 100;
-
 
 
         return $this->twig->render('Egg/choicecharacter.html.twig', ['characters'=>$characters, 'perso1'=>$namePerso1, 'perso2'=>$namePerso2]);
