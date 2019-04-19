@@ -59,4 +59,9 @@ class ChoiceController extends AbstractController
 
         return $this->twig->render('Egg/choicecharacter.html.twig', ['characters'=>$characters, 'perso1'=>$namePerso1, 'perso2'=>$namePerso2]);
     }
+    public function deco(){
+        session_start();
+        session_destroy();
+        header('location:/choice/show');
+    }
 }
