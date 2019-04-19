@@ -45,7 +45,7 @@ class ChoiceController extends AbstractController
             }
 			//session_destroy();
         }
-      
+
 		$namePerso1=[];
 		$namePerso2=[];
         // ICI JE RECUPERE LES INFOS CONCERNANT LES DEUX PERSO. RECHERCHE SUR L'API AVEC L'ID, qui est stocké dans la variable $_SESSION.7
