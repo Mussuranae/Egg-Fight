@@ -1,8 +1,11 @@
 /* Navbar */
 
 .nav-wrapper {
-    background-color: #D8D9D9;
-    border-bottom: 1px solid #D8D9D9;
+    background-color: transparent;
+    background-image: url("/assets/images/backgroundSF.jpg");
+    max-height: 64px;
+    width: auto;
+    overflow: auto;
     box-shadow: 0px 1px 5px #7C7D7D;
 }
 .under_nav{
