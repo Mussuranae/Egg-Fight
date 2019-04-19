@@ -24,7 +24,6 @@ abstract class AbstractController
      */
     protected $twig;
 
-
     /**
      *  Initializes this class.
      */

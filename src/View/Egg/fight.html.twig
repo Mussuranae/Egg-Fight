@@ -6,36 +6,46 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col xl2">
+
+        <!-- CARD OEUF -->
+        {% if egg.name is defined %}
+        <div class="col">
             <div class="card small">
                 <div class="card-image">
                     <img src="https://via.placeholder.com/20x20">
                 </div>
                 <div class="card-content">
-                    <p>Easter Egg</p>
+                    <p>{{ egg.name }}</p>
+                    <p>Calibre: {{ egg.caliber }}</p>
+                    <p>Code Farming: {{ egg.farming }}</p>
                 </div>
             </div>
         </div>
-
-        <div class="col xl3">
+        {% endif %}
+        <!-- CARD PERSO-->
+        <div class="col">
             <div class="card small">
                 <div class="card-image">
                     <img src="https://via.placeholder.com/20x20">
                 </div>
                 <div class="card-content">
-                    <p>Character</p>
+                    <p>{{ characters.name }}</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col xl2">
+        <div class="col">
             <img src="http://via.placeholder.com/30x30">
-            <span class="egg-name">Egg's Name</span>
+            <a href="/fight/show/1"><button >pioche ton <del>porc</del> Oeuf</button></a>
+            {% if egg.name is defined %}
+            <a href="/fight/show/3"><button >balance ton <del>porc</del> Oeuf</button></a>
+            {% endif %}
+            <!-- if code==3 alors applique les dégâts au perso 2 (à mettre dans le controller) -->
         </div>
 
-        <div class="col xl3">
+        <div class="col-xl3">
             <div class="character_stats">
                 <p>Nom</p>
                 <p>HP</p>
@@ -47,36 +57,43 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col xl2 right">
+        {% if egg2.name is defined %}
+        <div class="col right">
             <div class="card small">
                 <div class="card-image">
                     <img src="https://via.placeholder.com/20x20">
                 </div>
                 <div class="card-content">
-                    <p>Easter Egg</p>
+                    <p>{{ egg2.name }}</p>
+                    <p>Calibre: {{ egg2.caliber }}</p>
+                    <p>Code Farming: {{ egg2.farming }}</p>
                 </div>
             </div>
         </div>
-
-        <div class="col xl3 right">
+        {% endif %}
+        <div class="col right">
             <div class="card small">
                 <div class="card-image">
                     <img src="https://via.placeholder.com/20x20">
                 </div>
                 <div class="card-content">
-                    <p>Character</p>
+                    <p>{{ characters2.name }}</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col xl2 right">
+        <div class="col right">
             <img src="http://via.placeholder.com/30x30">
-            <span class="egg-name">Egg's Name</span>
+            <a href="/fight/show/2"><button >pioche ton <del>porc</del> Oeuf 2</button></a>
+            {% if egg2.name is defined %}
+            <a href="/fight/show/4"><button >balance ton <del>porc</del> Oeuf</button></a>
+            {% endif %}
+            <!-- if code==4 alors applique les dégâts au perso 1 (à mettre dans le controller) -->
         </div>
 
-        <div class="col xl3 right">
+        <div class="col right">
             <div class="character_stats">
                 <p>Nom</p>
                 <p>HP</p>

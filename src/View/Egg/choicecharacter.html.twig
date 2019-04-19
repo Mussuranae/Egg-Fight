@@ -12,6 +12,8 @@
 			<div class="col-sm-1">
 					{{ character.name }}
 					<img src="{{ character.image }}" class="img w-100">
+					<form method="POST"><button name="{{ character.id }}" type="submit" class="btn -btn-outline-success">Pick Me!</button></form>  <!--Je sais, c'est IGNOBLE DE FAIRE CA.-->
+
 			</div>
 		{% endfor %}
 
@@ -19,6 +21,8 @@
 
   	</div>
   </div>
+	<p>NOM PERSO 1 : {{ perso1.name }}</p>
+	<p>NOM PERSO 2 : {{ perso2.name }}</p>
 </div>
 
 {% endblock %}
