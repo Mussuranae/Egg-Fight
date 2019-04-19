@@ -1,0 +1,48 @@
+/* Importation police */
+
+@font-family{
+    font-family: outrun_future;
+    src: url("../typographie/outrun_future/Outrun_future.otf");
+}
+
+
+/* Navbar */
+
+.title_navbar{
+    font-family: outrun_future;
+}
+
+.nav-wrapper {
+    background-color: #D8D9D9;
+    border-bottom: 1px solid #D8D9D9;
+    box-shadow: 0px 1px 5px #7C7D7D;
+}
+.under_nav{
+    padding-top: 20px;
+}
+
+/* Card Choice Character */
+
+.card_choice{
+    margin: 5px;
+}
+
+.choice_image{
+    max-height: 175px;
+    min-width: 175px;
+    overflow: hidden;
+}
+
+.choice_name{
+    padding: 20px;
+    height: 100px;
+}
+
+.p_name{
+    text-align: center;
+    font-weight: bold;
+}
+.species{
+    text-align: center;
+    size: 10px;
+}

@@ -4,25 +4,29 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container under_nav">
 
   <div class="row">
 
 		{% for character in characters %}
-			<div class="col-sm-1">
-					{{ character.name }}
-					<img src="{{ character.image }}" class="img w-100">
-					<form method="POST"><button name="{{ character.id }}" type="submit" class="btn -btn-outline-success">Pick Me!</button></form>  <!--Je sais, c'est IGNOBLE DE FAIRE CA.-->
+                <div class="col s2">
+                    <div class="card card_choice">
+                        <div class="card-image choice_image">
+                            <img src="{{ character.image }}" class="img w-100">
+                        </div>
+                        <div class="card-content choice_name">
+                            <p class="p_name">{{ character.name }}</p>
+                            <p class="species">{{ character.species }}</p>
+                        </div>
+                    </div>
+                    <form method="POST"><button name="{{ character.id }}" type="submit" class="btn -btn-outline-success">Pick Me!</button></form>
+                </div>
 
-			</div>
-		{% endfor %}
-
-  	<div class="character">
-
-  	</div>
+        {% endfor %}
+        <div class="character">
+            <p>Personnage sélectionné n°1 : {{ perso1.name }}</p>
+            <p>Personnage sélectionné n°2 : {{ perso2.name }}</p>
+        </div>
   </div>
-	<p>NOM PERSO 1 : {{ perso1.name }}</p>
-	<p>NOM PERSO 2 : {{ perso2.name }}</p>
-</div>
 
 {% endblock %}
