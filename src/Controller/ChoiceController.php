@@ -25,7 +25,7 @@ class ChoiceController extends AbstractController
 
         // Compte 10 personnages différents et aléatoires, transforme les infos et les stocke dans un tableau.
         while (count($characters) < 10) {
-            $response = $client->request('GET', 'characters/random');
+            $response=$client->request('GET', 'characters/random');
             $temporary_characters=$response->getBody();
             $temporary_characters=json_decode($temporary_characters);
 
