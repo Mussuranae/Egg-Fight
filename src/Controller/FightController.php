@@ -6,6 +6,13 @@ use GuzzleHttp\Client;
 
 class FightController extends AbstractController
 {
+  /**
+   * Display the created event on the 'weekCalendar.html.twig' page with a success message, or display the same form with errors messages.
+   *
+   * This method will insert into 'events' table the form inputs from '_addEventForm.html.twig'.
+   *
+   * @return mixed
+   */
   public function show($code)
   {
   	session_start();
@@ -14,22 +21,26 @@ class FightController extends AbstractController
   		'base_uri' => 'http://easteregg.wildcodeschool.fr/api/',
   	]);
 
-  	// Récupération des infos des 2 personnages choisis sur la page choicecharacter.html.twig
+  	// Récupération des infos du 1er personnage choisi sur la page choicecharacter.html.twig
   	$response=$client->request('GET', 'characters/'.$_SESSION['perso1'][0]);
   	$characters=$response->getBody();
   	$characters=json_decode($characters);
 
+    // Récupération des infos du 2e personnage choisi sur la page choicecharacter.html.twig
   	$response2=$client->request('GET', 'characters/'.$_SESSION['perso2'][0]);
   	$characters2=$response2->getBody();
   	$characters2=json_decode($characters2);
 
-  		$egg=[];
-  		$egg2=[];
-	if($code==1) {
-		$response3 = $client->request('GET', 'eggs/random');
-		$egg = $response3->getBody();
-		$egg = json_decode($egg);
-	}
+    // initialisation des infos des oeuf dans un tableau à null
+		$egg=[];
+		$egg2=[];
+
+	  if($code==1) {
+  		$response3 = $client->request('GET', 'eggs/random');
+  		$egg = $response3->getBody();
+  		$egg = json_decode($egg);
+	  }
+
 	  if($code==2) {
 		  $response4 = $client->request('GET', 'eggs/random');
 		  $egg2 = $response4->getBody();
@@ -40,7 +51,4 @@ class FightController extends AbstractController
 
     return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2]);
   }
-
-
-
 }
