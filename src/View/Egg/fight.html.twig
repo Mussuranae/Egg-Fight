@@ -25,7 +25,7 @@
             </div>
             <div class="card-content fight_name">
                 <p class="p_name">{{ characters.name }}</p>
-                <p class="hp_fight">PV = {{ $_SESSION['pvPerso1'] -= 10 }}</p>
+                <p class="hp_fight">PV = METHODE A DEFINIR</p>
             </div>
         </div>
     </div>
@@ -58,12 +58,12 @@
             </div>
             <div class="card-content fight_name">
                 <p class="p_name">{{ characters2.name }}</p>
-                <p class="hp_fight">PV = {{ $_SESSION['pvPerso2'] -= 10 }}</p>
+                <p class="hp_fight">PV = METHODE A DEFINIR</p>
             </div>
         </div>
     </div>
     <div class="row">
-        <a href="/fight/show/1"><button class="waves-effect waves-light btn-small pick_me">Pioche ton Oeuf</button></a>
+        <a href="/fight/show/2"><button class="waves-effect waves-light btn-small pick_me">Pioche ton Oeuf</button></a>
         {% if egg2.name is defined %}
             <a href="/fight/show/3" ><button class="waves-effect waves-light btn-small pick_me">Balance ton Oeuf</button></a>
         {% endif %}
