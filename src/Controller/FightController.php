@@ -44,6 +44,10 @@ class FightController extends AbstractController
 		  $egg2 = json_decode($egg2, true); //avec le 'true' ça renvoit les datas en tableau associatif
 	  }
 
+    $pvPerso1 = $_SESSION['pvPerso1'];
+    $pvPerso2 = $_SESSION['pvPerso2'];
+
+
     if ($code == 3) {
       $_SESSION['pvPerso2'] -= 10;
     }
@@ -52,8 +56,7 @@ class FightController extends AbstractController
       $_SESSION['pvPerso1'] -= 10;
     }
 
-
-    return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2]);
+    return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2,'pvPerso1'=>$pvPerso1, 'pvPerso2'=>$pvPerso2]);
 
   }
 }
