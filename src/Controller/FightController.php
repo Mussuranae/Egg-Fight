@@ -47,7 +47,6 @@ class FightController extends AbstractController
 		  $egg2 = json_decode($egg2);
 	  }
 
-	  var_dump($egg);
 
     return $this->twig->render('Egg/fight.html.twig', ['characters'=>$characters, 'characters2'=>$characters2, 'egg'=>$egg ,'egg2'=>$egg2]);
   }
