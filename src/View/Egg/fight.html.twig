@@ -6,7 +6,10 @@
 
 <div class="container">
     <div class="row">
-        {% if egg.name is defined %}
+        <div class="col-sm-3">
+            {% if egg.name is defined %}
+
+            <!-- 1st player's egg -->
             <div class="card card_egg">
                 <div class="card-image fight_image">
                     <img src="{{ egg.image }}">
@@ -17,9 +20,11 @@
                     <p>Code Farming: {{ egg.farming }}</p>
                 </div>
             </div>
-        {% endif %}
+            {% endif %}
+        </div>
 
-        <div class="card card_fight">
+        <!-- 1st player's card -->
+        <div class="card card_fight col-sm-3">
             <div class="card-image fight_image">
                 <img src="{{ characters.image }}">
             </div>
@@ -28,51 +33,11 @@
                 <p class="hp_fight">PV = {{ pvPerso1 }}</p>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <a href="/fight/show/1"><button class="waves-effect waves-light btn-small pick_me">Pioche ton Oeuf</button></a>
-        {% if egg.name is defined %}
-            <a href="/fight/show/3" ><button class="waves-effect waves-light btn-small pick_me">Balance ton Oeuf</button></a>
-        {% endif %}
-    </div>
-</div>
-<div class="container">
-    <div class="row justify-content-end">
-        {% if player1=="" and player2=="" %}
-        <p>JOUEUR 1, A TOI DE JOUER</p>
-        {% endif %}
-        {% if player1 ==1 %}
-        <p>JOUEUR 1, A TOI DE JOUER</p>
-        {% endif %}
-        {% if player2 == 2 %}
-            <p>JOUEUR 2, A TOI DE JOUER</p>
-        {% endif %}
-    </div>
-    <div class="row justify-content-center">
-        {% if pvPerso1 <= 30 or pvPerso2 <= 30 and imageMael==""%}
-            <a href="/fight/show/5"><button class="waves-effect waves-light btn-small pick_me">Balance ton Prof!</button></a>
 
-        {% endif %}
+        <div class="col-sm-3">
+            {% if egg2.name is defined %}
 
-        {% if imageMael!="" %}
-            <p style="color: #FE211B; font-weight: bold;">Maël arrive en renfort ! PV + 20 !!</p>
-            <p></p>
-            <img src="{{ imageMael }}">
-        {% endif %}
-
-        {% if pvPerso1<=0 %}
-        <p>Le joueur 2 gagne...</p>
-        <a href="/choice/deco">Recommencer une partie?</a>
-        {% endif %}
-        {% if pvPerso2<=0 %}
-            <p>Le joueur 1 gagne...</p>
-            <a href="/choice/deco" class="waves-effect waves-light btn-small pick_me">Recommencer une partie?</a>
-        {% endif %}
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        {% if egg2.name is defined %}
+            <!-- 2nd player's egg -->
             <div class="card card_egg">
                 <div class="card-image fight_image">
                     <img src="{{ egg2.image }}">
@@ -83,9 +48,11 @@
                     <p>Code Farming: {{ egg2.farming }}</p>
                 </div>
             </div>
-        {% endif %}
+            {% endif %}
+        </div>
 
-        <div class="card card_fight">
+        <!-- 2nd player's card -->
+        <div class="card card_fight col-sm-3">
             <div class="card-image fight_image">
                 <img src="{{ characters2.image }}">
             </div>
@@ -95,12 +62,65 @@
             </div>
         </div>
     </div>
+
+    <!-- 1st player's buttons "pick" and "throw" -->
     <div class="row">
-        <a href="/fight/show/2"><button class="waves-effect waves-light btn-small pick_me">Pioche ton Oeuf</button></a>
-        {% if egg2.name is defined %}
-            <a href="/fight/show/4" ><button class="waves-effect waves-light btn-small pick_me">Balance ton Oeuf</button></a>
-        {% endif %}
+        <div class="col-sm-3">
+            <a href="/fight/show/1"><button class="waves-effect waves-light btn-small pick_me">Pioche ton Oeuf</button></a>
+            {% if egg.name is defined %}
+                <a href="/fight/show/3" ><button class="waves-effect waves-light btn-small pick_me">Balance ton Oeuf</button></a>
+            {% endif %}
+        </div>
+
+    <!-- 2nd player's buttons "pick" and "throw" -->
+        <div class="col-sm-3">
+            <div class="row">
+                <a href="/fight/show/2"><button class="waves-effect waves-light btn-small pick_me">Pioche ton Oeuf</button></a>
+                {% if egg2.name is defined %}
+                    <a href="/fight/show/4" ><button class="waves-effect waves-light btn-small pick_me">Balance ton Oeuf</button></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- turn to play -->
+        <div class="row justify-content-end">
+            {% if player1 == "" and player2 == "" %}
+            <p>JOUEUR 1, A TOI DE JOUER</p>
+            {% endif %}
+            {% if player1 == 1 %}
+            <p>JOUEUR 1, A TOI DE JOUER</p>
+            {% endif %}
+            {% if player2 == 2 %}
+                <p>JOUEUR 2, A TOI DE JOUER</p>
+            {% endif %}
+        </div>
+
+        <!-- Easter-Egg -->
+        <div class="row justify-content-center">
+            {% if pvPerso1 <= 30 or pvPerso2 <= 30 and imageMael==""%}
+                <a href="/fight/show/5"><button class="waves-effect waves-light btn-small pick_me">Balance ton Prof!</button></a>
+
+            {% endif %}
+
+            {% if imageMael!="" %}
+                <p style="color: #FE211B; font-weight: bold;">Maël arrive en renfort ! PV + 20 !!</p>
+                <p></p>
+                <img src="{{ imageMael }}">
+            {% endif %}
+
+            {% if pvPerso1<=0 %}
+            <p>Le joueur 2 gagne...</p>
+            <a href="/choice/deco">Recommencer une partie?</a>
+            {% endif %}
+            {% if pvPerso2<=0 %}
+                <p>Le joueur 1 gagne...</p>
+                <a href="/choice/deco" class="waves-effect waves-light btn-small pick_me">Recommencer une partie?</a>
+            {% endif %}
+        </div>
     </div>
 </div>
+
 
 {% endblock %}
